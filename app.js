@@ -1,7 +1,7 @@
 import Express from "express";
-import { errorHandlerMiddleware } from "./middlewares/errorHandler.js";
-import carritoRouter from "./routes/carrito.routes.js";
-import productosRouter from "./routes/productos.routes.js";
+import { errorHandlerMiddleware } from "./src/middlewares/errorHandler.js";
+import carritoRouter from "./src/routes/carrito.routes.js";
+import productosRouter from "./src/routes/productos.routes.js";
 
 const app = Express();
 
