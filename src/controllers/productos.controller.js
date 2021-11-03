@@ -1,15 +1,24 @@
-import { Producto } from "../models/Producto.js";
-
-const productos = [];
+import  { Producto }  from "../models/Producto.js";
+import DB from '../models/FileProductos.js';
 
 export const getProductos = (req, res) => {
-	const { id } = req.query;
-	if (id) return res.status(200).json(productos.find((p) => p.id == id));
-	return res.status(200).json(productos);
+	try {
+		const productos = DB.getData();
+		console.log(productos)
+		const { id } = req.query;
+		if (id) return res.status(200).json(productos.find((p) => p.id == id));
+		return res.status(200).json(productos);
+	} catch (error) {
+		console.log(error)
+		return [];
+	}
 };
+
+
 
 export const agregarProducto = (req, res) => {
 	try {
+		const productos = DB.getData();
 		const { nombre, descripcion, codigo, imagen, precio, stock } = req.body;
 		const newProduct = new Producto(
 			nombre,
@@ -20,7 +29,8 @@ export const agregarProducto = (req, res) => {
 			stock
 		);
 		productos.push(newProduct);
-		return res.status(201).json(newProduct);
+		const addOK = DB.createData(newProduct);
+		if(addOK) return res.status(201).json(newProduct);
 	} catch (err) {
 		console.log(err);
 	}

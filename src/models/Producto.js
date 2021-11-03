@@ -1,5 +1,6 @@
 import { v4 } from "uuid";
 
+
 export class Producto {
 	constructor(nombre, descripcion, codigo, imagen, precio, stock) {
 		this.id = v4();
