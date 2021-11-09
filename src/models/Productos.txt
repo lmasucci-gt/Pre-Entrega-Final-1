@@ -1,20 +1,32 @@
 [
 	{
-		"id": 1,
-		"title": "Samsung-s8",
-		"price": 70000,
-		"thumbnail": "https://celulares.com/Samsung-s8.jpg"
+		"id": "db95fe9e-3d46-4103-b1a3-741b7e1c613e",
+		"timestamp": 1636430066262,
+		"nombre": "Dog Selection Criadores Adulto x21KG",
+		"descripcion": "Alimento balanceado para perros adultos, 20% proteina",
+		"codigo": 141300,
+		"imagen": "www.dogselection.com.ar",
+		"precio": "2999",
+		"stock": 48
 	},
 	{
-		"id": 2,
-		"title": "Nokia-1100",
-		"price": 5500,
-		"thumbnail": "https://celulares.com/Nokia-1100.jpg"
+		"id": "700aa372-be9a-4996-8a83-fea22914a524",
+		"timestamp": 1636430228635,
+		"nombre": "Dog Selection Criadores Cachorro x21KG",
+		"descripcion": "Alimento balanceado para perros adultos, 23% proteina",
+		"codigo": 1411234,
+		"imagen": "www.dogselection.com.ar",
+		"precio": "2999",
+		"stock": 48
 	},
 	{
-		"id": 3,
-		"title": "Xiami-A1",
-		"price": 30000,
-		"thumbnail": "https://celulares.com/Xiami-A1.jpg"
+		"id": "0c380a8b-2d55-4963-b2e3-bf5bb0c99340",
+		"timestamp": 1636431340445,
+		"nombre": "Dog Selection Criadores Raza Pequeña x15KG",
+		"descripcion": "Alimento balanceado para perros adultos raza pequeña, 21% proteina",
+		"codigo": 141330,
+		"imagen": "www.dogselection.com.ar",
+		"precio": "2099",
+		"stock": 80
 	}
 ]

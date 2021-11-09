@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export class File{
     constructor(file){
-        this.file = `${__dirname}/Productos.txt`
+        this.file = `${__dirname}/Carrito.txt`
     }
     getData(){
         try{
@@ -18,11 +18,14 @@ export class File{
         }
     }
     createData(producto){
-        const productos = fs.readFileSync(this.file, 'utf-8');
-        const productosParse = JSON.parse(productos);
-        productosParse.push(producto);
-        try{
-            fs.writeFile(this.file, JSON.stringify(productosParse, null, '\t'), () => {});
+        try{            
+            const carrito = fs.readFileSync(this.file, 'utf-8');
+            console.log(carrito)
+            if (carrito.productos.length <0) {
+                const carritoParse = JSON.parse(carrito);            
+                carritoParse.productos.push(producto);
+            }
+            fs.writeFile(this.file, JSON.stringify(carritoParse, null, '\t'), () => {});
             return true;
         }
         catch (err){
