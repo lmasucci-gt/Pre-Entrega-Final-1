@@ -1,0 +1,16 @@
+{
+	"id": "726b6c60-4cd6-4cb5-8e3f-77f903ad5fc7",
+	"timestamp": 1636502016065,
+	"productos": [
+		{
+			"id": "fdff3ba9-0dc1-4a4a-864e-3ea5c8f2aa01",
+			"timestamp": 1636502024208,
+			"nombre": "Dog Selection Criadores Cachorro x21KG",
+			"descripcion": "Alimento balanceado para perros adultos, 23% proteina",
+			"codigo": 1411234,
+			"imagen": "www.dogselection.com.ar",
+			"precio": "2999",
+			"stock": 48
+		}
+	]
+}

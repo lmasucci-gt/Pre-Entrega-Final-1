@@ -17,15 +17,9 @@ export class File{
             return [];
         }
     }
-    createData(producto){
-        try{            
-            const carrito = fs.readFileSync(this.file, 'utf-8');
-            console.log(carrito)
-            if (carrito.productos.length <0) {
-                const carritoParse = JSON.parse(carrito);            
-                carritoParse.productos.push(producto);
-            }
-            fs.writeFile(this.file, JSON.stringify(carritoParse, null, '\t'), () => {});
+    firstCarrito(carrito){
+        try{      
+            fs.writeFile(this.file, JSON.stringify(carrito, null, '\t'), () => {});
             return true;
         }
         catch (err){
@@ -33,9 +27,19 @@ export class File{
             return false;
         }
     }
-    updateData(productos){
+    createData(carrito){
+        try{  
+            fs.writeFile(this.file, JSON.stringify(carrito, null, '\t'), () => {});
+            return true;
+        }
+        catch (err){
+            console.log(err);
+            return false;
+        }
+    }
+    updateData(carrito){
         try{
-            fs.writeFile(this.file, JSON.stringify(productos, null, '\t'), () => {});
+            fs.writeFile(this.file, JSON.stringify(carrito, null, '\t'), () => {});
             return true;
         }
         catch (err){

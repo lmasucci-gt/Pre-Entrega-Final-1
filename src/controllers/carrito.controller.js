@@ -3,14 +3,12 @@ import { Producto } from "../models/Producto.js";
 import DB from "../models/FileCarrito.js";
 
 
-
+//Interprete esto como al entrar a una tienda, automaticamente crea un carrito para el usuario que se conecto
 export const getCarrito = (req, res) => {
 	try {		
 		const carrito = new Carrito();
-		console.log(carrito);
-		DB.createData(carrito);
-		console.log(carrito);
-		return res.status(200).json(carrito.productos.length == 0 ? {msg: "Aun no tiene productos en su carrito"} : carrito);
+		DB.firstCarrito(carrito);
+		return res.status(200).json({res: "ok"});
 	} catch (error) {
 		console.log(error)
 	}
@@ -18,7 +16,7 @@ export const getCarrito = (req, res) => {
 
 export const getProductsFromCarrito = (req, res) => {
 	const carrito = DB.getData()
-	return res.status(200).json(carrito.productos);
+	return res.status(200).json(carrito.productos.lenght > 0 ? carrito.productos : {msg: 'Su carrito esta vacio'});
 };
 
 export const agregarProducto = (req, res) => {
@@ -42,21 +40,32 @@ export const agregarProducto = (req, res) => {
   };
 
   export const borrarProducto = (req, res) => {
-	const { id } = req.params;
-	const productos = DB.getData();
-	const producto = productos.find((p) => p.id == id);
-	if (!producto) {
-	  return res.status(404).json({ msg: "Producto no encontrado" });
+	try {
+		const idparams= req.params.id;
+		const carrito = DB.getData();
+		const { productos, id, timestamp } = carrito
+		const producto = productos.find((p) => p.id == idparams);
+		if (!producto) {
+		  return res.status(404).json({ msg: "Producto no encontrado" });
+		}
+		const index = productos.findIndex((p) => p.id == id);
+		productos.splice(index, 1);
+		const newCarrito = {
+			id: id,
+			timestamp: timestamp,
+			productos: productos,
+		}
+		const updateOK = DB.updateData(newCarrito);
+		if (updateOK)
+		  res
+			.status(200)
+			.json({
+			  msg: `El producto se elimino correctamente`,
+			});
+		res.status(200).end();	
+	} catch (error) {
+		console.log(error);
 	}
-	const index = productos.findIndex((p) => p.id == id);
-	productos.splice(index, 1);
-	const updateOK = DB.updateData(productos);
-	if (updateOK)
-	  res
-		.status(200)
-		.json({
-		  msg: `El producto ${productos[indice].descripcion} se elimino correctamente`,
-		});
-	res.status(200).end();
+
   };
   
