@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "8617cff2-807d-459e-a0fd-dc5d9b356a5a",
+		"name": "Primer Pre-entrega Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "getProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "agregarProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\t{\r\n        \"nombre\": \"Dog Selection Criadores Cachorro x21KG\",\r\n        \"descripcion\": \"Alimento balanceado para perros adultos, 23% proteina\",\r\n        \"codigo\": 1411234,\r\n        \"imagen\": \"www.dogselection.com.ar\",\r\n\t\t\"precio\": \"2999\",\r\n        \"stock\": 48\r\n\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"ac0b50c4-812a-4944-992b-a47fc3d24e95\",\r\n    \"timestamp\": 1636430313531,\r\n    \"nombre\": \"Dog Selection Criadores Raza Pequeña x15KG\",\r\n    \"descripcion\": \"Alimento balanceado para perros adultos raza pequeña, 21% proteina\",\r\n    \"codigo\": 141330,\r\n    \"imagen\": \"www.dogselection.com.ar\",\r\n    \"precio\": \"2099\",\r\n    \"stock\": 80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/productos/ac0b50c4-812a-4944-992b-a47fc3d24e95",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"productos",
+								"ac0b50c4-812a-4944-992b-a47fc3d24e95"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrarProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrito",
+			"item": [
+				{
+					"name": "getProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/carrito",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductsFromCarrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "agregarProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "borrarProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
